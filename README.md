@@ -45,7 +45,7 @@ Morse code represents characters of an alphabet as sequences of dits (short key 
 | B -... | H .... | N -.   | T -    | Z --.. |
 | C -.-. | I ..   | O ---  | U ..-  |        |
 | D -..  | J .--- | P .--. | V ...- |        |
-| E .    | K -.-. | Q --.- | W .--  |        |
+| E .    | K -.-  | Q --.- | W .--  |        |
 | F ..-. | L .-.. | R .-.  | X -..- |        |
 
 One blank space is used to separate letters and three blanks are used to separate words. Here is an example:

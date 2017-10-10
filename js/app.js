@@ -13,7 +13,8 @@ function randomPic() {
 
 
 function sentenceParse() {		
-	var inputString = document.getElementById("input").innerHTML;
+	var inputString;
+	inputString = document.getElementById("input").innerHTML;
 	inputString = inputString.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g,"").toUpperCase();
 	var stringArr = inputString.split(" ");
 	var uniqueWords = Object.create(null);
@@ -36,4 +37,53 @@ function sentenceParse() {
 		return outputString;
 	};
 	document.getElementById("output").innerHTML	= formatString();
+}
+
+function morseParse() {
+	var inputString
+	inputString = document.getElementById("morseInput").innerHTML;
+	inputString = inputString.split("   ");
+	var m = [
+		['.-','A'],
+		['-...','B'],
+		['-.-.','C'],
+		['-..','D'],
+		['.','E'],
+		['..-.','F'],
+		['--.','G'],
+		['....','H'],
+		['..','I'],
+		['.---','J'],
+		['-.-','K'],
+		['.-..','L'],
+		['--','M'],
+		['-.','N'],
+		['---','O'],
+		['.--.','P'],
+		['--.-','Q'],
+		['.-.','R'],
+		['...','S'],
+		['-','T'],
+		['..-','U'],
+		['...-','V'],
+		['.--','W'],
+		['-..-','X'],
+		['-.--','Y'],
+		['--..','Z']
+	]
+	var mm = new Map(m);
+	var outputString = "";
+	// console.log(inputString);
+	for(var word in inputString) {
+		// console.log(inputString[word]);
+		var splitW = inputString[word].split(" ");
+		for(var char in splitW) {
+			console.log(mm.get(splitW[char]));
+			outputString = outputString + mm.get(splitW[char])
+		}
+		outputString = outputString + "  ";
+	}
+	console.log(outputString);
+	document.getElementById("output").innerHTML = outputString;
+
 }
