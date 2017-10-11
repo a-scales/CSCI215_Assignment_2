@@ -39,6 +39,73 @@ function sentenceParse() {
 	document.getElementById("output").innerHTML	= formatString();
 }
 
+function mathFun() {
+	var inputArr = [];
+	var input = parseInt(prompt("Enter a number. -1 will start the calculation"));
+
+	while(input != '-1') {
+		inputArr.push(input);
+		input = parseInt(prompt("Enter a number. -1 will start the calculation"));
+	}
+	
+	var m = inputArr[0];
+	var mx = inputArr[0];
+	var min = inputArr.forEach(min);
+	var max = inputArr.forEach(max);
+	function min(item,index) {
+		m = item < m ? item : m;
+	}
+	min = m;
+	function max(item,index) {
+		mx = item > mx ? item : mx;
+	}
+	max = mx;
+	var modeInt = Object.create(null);
+	var mode = inputArr.forEach(mode);
+	var md = 0;
+	var m_i
+	function mode(item, index) {
+		modeInt[item] = modeInt[item] > 0 ? modeInt[item] += 1 : 1;
+	}
+	Object.values(modeInt).forEach(function mde(item,index) {
+		md = item >= md ? m_i = index : m_i = m_i;
+	});			
+	mode = modeInt[m_i];
+	console.log(mode);
+	var evens = 0;
+	var odds = 0;
+	var ppow = 0;
+	var primes = 0;
+	for(var i in inputArr) {
+		if(inputArr[i] % 2 == 0) {
+			evens++;
+		}
+		else {
+			odds++;
+		}
+		if(Math.sqrt(inputArr[i]) % 1 == 0) {
+			ppow++;
+		}
+		isAprime = true;
+		for(var j = 0; j < inputArr[i]; j++) {
+			if(inputArr[i] % j == 0) {
+				isAprime = false;
+			}
+		}
+		if(isAprime){
+			primes++;
+		}
+	}
+	document.getElementById('min').innerHTML = min;
+	document.getElementById('max').innerHTML = max;
+	document.getElementById('mode').innerHTML = mode;
+	document.getElementById('median').innerHTML = inputArr[Math.floor(inputArr.length/2)];
+	document.getElementById('evens').innerHTML = evens;
+	document.getElementById('odds').innerHTML = odds;
+	document.getElementById('powers').innerHTML = ppow;
+	document.getElementById('primes').innerHTML = primes;
+}
+
 function morseParse() {
 	var inputString
 	inputString = document.getElementById("morseInput").innerHTML;
@@ -91,7 +158,6 @@ function emailVerify() {
 	var valid = ':(';
 	var inputString = document.getElementById("emailInput").innerHTML;
 	var at_check = inputString.split('@').length > 1 && inputString.split('@')[0].length > 0;
-
 	if(at_check) {
 		var at_split = inputString.split('@');
 		var dot_check = at_split[1].split('.').length > 1 && at_split[1].split('.')[1].length > 0;
