@@ -87,3 +87,23 @@ function morseParse() {
 	document.getElementById("output").innerHTML = outputString;
 
 }
+function emailVerify() {
+	var valid = ':(';
+	var inputString = document.getElementById("emailInput").innerHTML;
+	var at_check = inputString.split('@').length > 1 && inputString.split('@')[0].length > 0;
+
+	if(at_check) {
+		var at_split = inputString.split('@');
+		var dot_check = at_split[1].split('.').length > 1 && at_split[1].split('.')[1].length > 0;
+		if(dot_check){
+			valid = ':)'
+		}
+	}
+	document.getElementById("output").innerHTML = valid;
+	
+}
+
+
+
+
+
