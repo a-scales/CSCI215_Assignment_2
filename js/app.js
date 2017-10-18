@@ -8,15 +8,11 @@ function randomPic() {
 	var randInt = Math.floor((Math.random() * 4));
 	console.log(randInt);
 	document.getElementById("image").style.backgroundImage = "url('"+I[randInt]+"')";
-
 }
 
 
 function sentenceParse() {		
-	var inputString;
-	inputString = document.getElementById("input").innerHTML;
-	inputString = inputString.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g,"").toUpperCase();
-	var stringArr = inputString.split(" ");
+	var stringArr = document.getElementById("input").innerHTML.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g,"").toUpperCase().split(" ");
 	var uniqueWords = Object.create(null);
 	for (var word in stringArr) {
 		if(uniqueWords[stringArr[word]] == null) {
